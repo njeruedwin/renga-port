@@ -76,14 +76,14 @@
     template('template-view1', () => {
         let myDiv = document.getElementById(appDiv);
         myDiv.innerHTML = "";
-        const link1 = createDiv('view1', "<div><h1>This is View 1 </h1><a href='#/'>Go Back to Index</a></div>");
+        const link1 = createDiv('manoj', "<div><h1>View Manoj Profile</h1><a href='/manojs.html'>/</a></div>");
         return myDiv.appendChild(link1);
     });
 
     template('template-view2', () => {
         let myDiv = document.getElementById(appDiv);
         myDiv.innerHTML = "";
-        const link2 = createDiv('view2', "<div><h1>This is View 2 </h1><a href='#/'>Go Back to Index</a></div>");
+        const link2 = createDiv('Pannaga', "<div><h1>Pannaga</h1><a href='/pannaga.html'>Panaga</a></div>");
         return myDiv.appendChild(link2);
     });
 
