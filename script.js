@@ -76,8 +76,12 @@
     template('template-view1', () => {
         let myDiv = document.getElementById(appDiv);
         myDiv.innerHTML = "";
-        const link1 = createDiv('view1', "<div><h1>This is View 1 </h1><a href='#/'>Go Back to Index</a></div>");
+        fetch('./manoj.html')
+        .then(response => response.text())
+        .then(data => {
+        const link1 = createDiv('view1', data);
         return myDiv.appendChild(link1);
+    })
     });
 
     template('template-view2', () => {
