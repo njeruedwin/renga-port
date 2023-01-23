@@ -66,36 +66,45 @@
     template('template1', () => {
         let myDiv = document.getElementById(appDiv);
         myDiv.innerHTML = "";
-        const link1 = createLink('view1', 'Go to view1', '#/view1');
-        const link2 = createLink('view2', 'Go to view2', '#/view2');
+        const link1 = createLink('view1', 'Manoj S Warrier', '#/manoj');
+        const link2 = createLink('view2', 'Pannaga B Patnayak', '#/pannaga');
 
         myDiv.appendChild(link1);
         return myDiv.appendChild(link2);
     });
 
-    template('template-view1', () => {
+    template('view1', () => {
         let myDiv = document.getElementById(appDiv);
         myDiv.innerHTML = "";
-        fetch('./manoj.html')
+        fetch('./pages/manoj.html')
         .then(response => response.text())
         .then(data => {
-        const link1 = createDiv('view1', data);
+        const link1 = createDiv('manoj', data);
         return myDiv.appendChild(link1);
     })
     });
-
-    template('template-view2', () => {
+    template('view2', () => {
         let myDiv = document.getElementById(appDiv);
         myDiv.innerHTML = "";
-        const link2 = createDiv('view2', "<div><h1>This is View 2 </h1><a href='#/'>Go Back to Index</a></div>");
-        return myDiv.appendChild(link2);
+        fetch('./pages/pannagab.html')
+        .then(response => response.text())
+        .then(data => {
+        const link1 = createDiv('pannaga', data);
+        return myDiv.appendChild(link1);
+    })
     });
+    // template('template-view2', () => {
+    //     let myDiv = document.getElementById(appDiv);
+    //     myDiv.innerHTML = "";
+    //     const link2 = createDiv('Pannaga', "<div><h1>Pannaga</h1><a href='/pannaga.html'>Panaga</a></div>");
+    //     return myDiv.appendChild(link2);
+    // });
 
 
     // Define the mappings route->template.
     route('/', 'template1');
-    route('/view1', 'template-view1');
-    route('/view2', 'template-view2');
+    route('/manoj', 'view1');
+    route('/pannaga', 'view2');
 
     // For first load or when routes are changed in browser url box.
     window.addEventListener('load', router);
